@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= typeof title == 'undefined' ? 'New Sails App' : title %></title>
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/Bootstrap/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/miEstilo.css">
+  <script src="/Jquery/jquery-3.1.1.min.js"></script>
+  <script src="/Bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+  <!--STYLES-->
+  <link rel="stylesheet" href="/styles/importer.css">
+  <link rel="stylesheet" href="/styles/miEstilo.css">
+  <!--STYLES END-->
+</head>
+
+<body >
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/Inicio">Artistas y Album</a>
+  </div>
+
+  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/Inicio">Inicio</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Artista <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/crearArtista">Crear</a></li>
+          <li class="divider"></li>
+          <li><a href="/listarBorrarArtista">Listar y Borrar</a></li>
+          <li class="divider"></li>
+          <li><a href="/ActualizarArtista">Actualizar</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Album <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="/crearAlbum">Crear</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Listar y Borrar</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Actualizar</a></li>
+
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+<div class="container">
+  <%- body %>
+</div>
+<!--TEMPLATES-->
+
+<!--TEMPLATES END-->
+
+<!--SCRIPTS-->
+<script src="/js/dependencies/sails.io.js"></script>
+<!--SCRIPTS END-->
+</body>
+</html>

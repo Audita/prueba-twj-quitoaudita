@@ -1,0 +1,23 @@
+<div class="page-header" >
+  <h1 align="center">Actualizar Artista: <%= artistaAEditar.nombre %></h1>
+</div>
+<form action="/Artista/editarArtista" method="post">
+
+  <div class="form-group">
+    <label>Nombre:</label>
+    <input type="text" class="form-control" placeholder="Ingrese el nombre del artista" name="nombre" value="<%= artistaAEditar.nombre %>">
+  </div>
+
+  <div class="form-group">
+    <label>Estilo</label>
+    <input type="text" class="form-control" placeholder="Ingrese el estilo"  name="estilo" value="<%= artistaAEditar.estilo %>">
+  </div>
+
+  <div class="form-group">
+    <label>Pais de Residencia</label>
+    <input type="text" class="form-control" placeholder="Ingrese el pais de recidencia"  name="paisResidencia" value="<%= artistaAEditar.paisResidencia %>">
+    <input type="hidden" name="idArtista" value="<%= artistaAEditar.id %>">
+  </div>
+
+  <button type="submit" class="btn btn-success">Actualizar Artista</button>
+</form>

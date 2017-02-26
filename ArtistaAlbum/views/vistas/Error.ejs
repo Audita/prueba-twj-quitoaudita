@@ -1,0 +1,14 @@
+<div class="page-header" >
+  <h1 align="center">¡ERROR!</h1>
+</div>
+<div class="jumbotron">
+  <div  align="center">
+    <img src="https://us.v-cdn.net/6025126/uploads/editor/w8/y96h29dhnm28.gif" alt="imagen error">
+  </div>
+  <p> <%= error.desripcion %></p>
+  <h3>Detalles</h3>
+  <pre>
+      <%= error.rawError %>
+  </pre>
+  <p><a class="btn btn-danger btn-lg" href="<%= error.url %>" role="button">Volver</a></p>
+</div>

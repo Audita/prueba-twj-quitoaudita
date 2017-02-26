@@ -1,0 +1,12 @@
+
+.borde {
+  border: gray solid 2px;
+}
+
+.bordeTexto{
+  border-top : 3px double gray;
+  border-bottom : 3px double gray;
+}
+
+
+
