@@ -4,9 +4,11 @@
 <form action="/Album/crearAlbum" method="post">
 
   <div>
-    <select class="form-control">
-      <% for(var i=0; i<artistas.length; i++) {%>
-      <option><%= artistas[i].nombre %></option>
+    <select class="form-control" name="idArtista">
+      <% for(var i=0; i<artistas.length; i++){ %>
+      <option value="<%=artistas[i].id%>">
+        <%=artistas[i].nombre%>
+      </option>
       <% }%>
     </select>
   </div>

@@ -40,7 +40,7 @@ module.exports.routes = {
   'get /editarArtista': 'RutasController.editarArtista',
   'get /Error': 'RutasController.error',
   'get /crearAlbum': 'RutasController.crearAlbum',
-  'get /listarBorrarAlbum': 'RutasController.listarBorrarAlbum',
+  'get /listarBorrarAlbum': 'RutasController.listarBorrarAlbum'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

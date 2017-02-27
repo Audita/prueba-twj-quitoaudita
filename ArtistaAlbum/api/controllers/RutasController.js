@@ -110,7 +110,14 @@ module.exports = {
   },
 
   crearAlbum: function (req, res) {
-    return res.view('vistas/Album/crearAlbum');
+    Artista.find().exec(function (error, albumEncontrados) {
+      if (error) return res.serverError();
+      return res.view('vistas/Album/crearAlbum', {
+        title: 'Crear Album',
+        albumes: albumEncontrados
+      });
+    });
+
   },
 
   listarBorrarAlbum: function (req, res) {

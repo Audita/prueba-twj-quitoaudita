@@ -10,7 +10,8 @@ module.exports = {
   attributes: {
     nombre: {
       type: 'string',
-      required: true
+      required: true,
+      unique: true
     },
     estilo: {
       type: 'string',
