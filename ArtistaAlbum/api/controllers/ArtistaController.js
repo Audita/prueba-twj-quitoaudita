@@ -37,12 +37,12 @@ module.exports = {
                   error: {
                     desripcion: "Hubo un problema cargando los Usuarios",
                     rawError: errorIndefinido,
-                    url: "/listarBorrarArtista"
+                    url: "/listarArtista"
                   }
                 });
               }
 
-              res.view('vistas/Artista/listarBorrarArtista', {
+              res.view('vistas/Artista/listarArtista', {
                 artistas: artistasEncontrados
               });
             })
@@ -91,7 +91,7 @@ module.exports = {
             error: {
               desripcion: "Tuvimos un Error Inesperado",
               rawError: errorInesperado,
-              url: "/listarBorrarArtista"
+              url: "/listarArtista"
             }
           });
         }
@@ -103,12 +103,12 @@ module.exports = {
                 error: {
                   desripcion: "Hubo un problema cargando los Artistas",
                   rawError: errorIndefinido,
-                  url: "/listarBorrarArtista"
+                  url: "/listarArtista"
                 }
               });
             }
 
-            res.view('vistas/Artista/listarBorrarArtista', {
+            res.view('vistas/Artista/listarArtista', {
               artistas: artistasEncontrados
             });
           })
@@ -117,9 +117,9 @@ module.exports = {
     } else {
       return res.view('vistas/Error', {
         error: {
-          desripcion: "Necesitamos el ID para borrar al Usuario",
+          desripcion: "Necesitamos el ID para borrar al Artista",
           rawError: "No envia ID",
-          url: "/listarBorrarArtista"
+          url: "/listarArtista"
         }
       });
     }
@@ -157,7 +157,7 @@ module.exports = {
               error: {
                 desripcion: "Tuvimos un Error Inesperado",
                 rawError: errorInesperado,
-                url: "/ActualizarArtista"
+                url: "/listarArtista"
               }
             });
           }
@@ -170,12 +170,12 @@ module.exports = {
                   error: {
                     desripcion: "Hubo un problema cargando los Artistas",
                     rawError: errorIndefinido,
-                    url: "/ActualizarArtista"
+                    url: "/listarArtista"
                   }
                 });
               }
 
-              res.view('vistas/Artista/ActualizarArtista', {
+              res.view('vistas/Artista/listarArtista', {
                 artistas: ArtistaEncontrado
               });
             })
@@ -187,7 +187,7 @@ module.exports = {
         error: {
           desripcion: "Necesitamos que envies el ID y el nombre, estilo o pais de residencia",
           rawError: "No envia Parametros",
-          url: "/ActualizarArtista"
+          url: "/listarArtista"
         }
       });
     }

@@ -4,6 +4,7 @@
 <form action="/Album/crearAlbum" method="post">
 
   <div>
+    <label>Elija el Artista:</label>
     <select class="form-control" name="idArtista">
       <% for(var i=0; i<artistas.length; i++){ %>
       <option value="<%=artistas[i].id%>">
@@ -12,7 +13,7 @@
       <% }%>
     </select>
   </div>
-
+  <br>
   <div class="form-group">
     <label>Nombre:</label>
     <input type="text" class="form-control" placeholder="Ingrese el nombre del album" name="nombre">
@@ -25,7 +26,7 @@
 
   <div class="form-group">
     <label>URL de la Portada</label>
-    <input type="text" class="form-control" placeholder="Ingrese el pais de recidencia"  name="URLPortada">
+    <input type="url" class="form-control" placeholder="Ingrese  la URL de la Portada"  name="URLPortada">
   </div>
 
   <button type="submit" class="btn btn-success">Crear Album</button>

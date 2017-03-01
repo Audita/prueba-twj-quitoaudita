@@ -21,7 +21,7 @@ module.exports = {
       }
     });
   },
-  listarBorrarArtista: function (req, res) {
+  listarArtista: function (req, res) {
 
     Artista.find()
       .exec(function (errorIndefinido, artistasEncontrados) {
@@ -31,33 +31,12 @@ module.exports = {
             error: {
               desripcion: "Hubo un problema cargando los Artistas",
               rawError: errorIndefinido,
-              url: "/listarBorrarArtista"
+              url: "/listarArtista"
             }
           });
         }
 
-        res.view('vistas/Artista/listarBorrarArtista', {
-          artistas: artistasEncontrados
-        });
-      })
-  },
-
-  ActualizarArtista: function (req, res) {
-
-    Artista.find()
-      .exec(function (errorIndefinido, artistasEncontrados) {
-
-        if (errorIndefinido) {
-          res.view('vistas/Error', {
-            error: {
-              desripcion: "Hubo un problema cargando los Artistas",
-              rawError: errorIndefinido,
-              url: "/ActualizarArtista"
-            }
-          });
-        }
-
-        res.view('vistas/Artista/ActualizarArtista', {
+        res.view('vistas/Artista/listarArtista', {
           artistas: artistasEncontrados
         });
       })
@@ -77,7 +56,7 @@ module.exports = {
             error: {
               desripcion: "Error Inesperado",
               rawError: errorInesperado,
-              url: "/ActualizarArtista"
+              url: "/listarArtista"
             }
           });
         }
@@ -91,7 +70,7 @@ module.exports = {
             error: {
               desripcion: "El artista con id: "+parametros.id+" no existe.",
               rawError: "No existe el artista",
-              url: "/ActualizarArtista"
+              url: "/listarArtista"
             }
           });
         }
@@ -102,25 +81,22 @@ module.exports = {
         error: {
           desripcion: "No ha enviado el parametro ID",
           rawError: "Faltan Parametros",
-          url: "/ActualizarArtista"
+          url: "/listarArtista"
         }
       });
 
     }
   },
-
   crearAlbum: function (req, res) {
-    Artista.find().exec(function (error, albumEncontrados) {
+    Artista.find().exec(function (error, artistaEncontrados) {
       if (error) return res.serverError();
       return res.view('vistas/Album/crearAlbum', {
         title: 'Crear Album',
-        albumes: albumEncontrados
+        artistas: artistaEncontrados
       });
     });
-
   },
-
-  listarBorrarAlbum: function (req, res) {
+  listarAlbum: function (req, res) {
 
     Album.find()
       .exec(function (errorIndefinido, artistasEncontrados) {
@@ -130,15 +106,57 @@ module.exports = {
             error: {
               desripcion: "Hubo un problema cargando los Album",
               rawError: errorIndefinido,
-              url: "/listarBorrarAlbum"
+              url: "/listarAlbum"
             }
           });
         }
 
-        res.view('vistas/Album/listarBorrarAlbum', {
-          artistas: artistasEncontrados
+        res.view('vistas/Album/listarAlbum', {
+          albumes: artistasEncontrados
         });
       })
-  }
+  },
+  editarAlbum: function (req, res) {
+    var parametros = req.allParams();
+    if (parametros.id) {
+      Album.findOne({
+        id: parametros.id
+      }).exec(function (error, albumEncontrado) {
+        if (error) return res.view('error', {
+          title: 'Error',
+          error: {
+            descripcion: 'Fallo al buscar el album',
+            url: '/listarAlbum'
+          }
+        });
+
+
+        Artista.find().exec(function (error, artistasEncontrados) {
+          if (error) return res.view('error', {
+            title: 'Error',
+            error: {
+              descripcion: 'Fallo al buscar la el artista',
+              url: '/listarAlbum'
+            }
+          });
+
+          return res.view('vistas/Album/editarAlbum', {
+            title: 'Editar Album - ' + albumEncontrado.nombre,
+            albumAEditar: albumEncontrado,
+            artistas: artistasEncontrados
+          })
+        });
+
+      });
+
+    } else {
+      return res.view('error', {
+        title: 'Error',
+        error: {
+          descripcion: 'No existe el ID'
+        }
+      });
+    }
+  },
 };
 

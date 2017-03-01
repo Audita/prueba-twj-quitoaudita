@@ -7,7 +7,7 @@
     <p>Aqui se encuentran todos los artistas del sistema Artista y Album.</p>
   </div>
   <div class="col-sm-3">
-    <a href="/crearArtista" class="btn btn-block btn-success">
+    <a href="/crearAlbum" class="btn btn-block btn-success">
       Crear Album
     </a>
   </div>
@@ -15,20 +15,19 @@
 <br>
 <br>
 <br>
-
 <div class="row">
   <div class="col-sm-12">
     <div class="col-sm-3 bordeTexto">
       <h2 align="center">Album</h2>
     </div>
     <div class="col-sm-3 bordeTexto">
-      <h2 align="center">Fecha de Lanzamientp</h2>
+      <h2 align="center">Lanzamiento</h2>
     </div>
     <div class="col-sm-3 bordeTexto" >
       <h2 align="center">URLPortada</h2>
     </div>
     <div class="col-sm-3 bordeTexto">
-      <h2 align="center">Borrar Album</h2>
+      <h2 align="center">Borrar/Actualizar</h2>
     </div>
   </div>
 </div>
@@ -42,13 +41,15 @@
       <h3 align="center"> <%= albumes[i].nombre %></h3>
     </div>
     <div class="col-sm-3 borde">
-      <h3 align="center"> <%= albumes[i].estilo %></h3>
+      <h3 align="center"><%=albumes[i].fechaLanzamiento.getDay()%>/<%=albumes[i].fechaLanzamiento.getMonth()%>/<%=albumes[i].fechaLanzamiento.getFullYear()%></h3>
     </div>
     <div class="col-sm-3 borde">
-      <h3 align="center"> <%= albumes[i].paisResidencia %></h3>
+      <h3 align="center"> <%= albumes[i].URLPortada%></h3>
     </div>
     <div class="col-sm-3">
-      <a href="/Artista/BorrarArtista?id=<%= albumes[i].id %>" class="btn btn-danger btn-block btn-lg">Borrar</a>
+      <a href="/Album/borrarAlbum?id=<%= albumes[i].id %>" class="btn btn-danger btn-block btn-sm">Borrar</a>
+      <a href="/editarAlbum?id=<%= albumes[i].id%>" class="btn btn-info btn-block btn-sm">Actualizar</a>
+      <br>
     </div>
   </div>
 

@@ -34,13 +34,15 @@ module.exports.routes = {
 
   'get /': 'RutasController.home',
   'get /Inicio': 'RutasController.home',
-  'get /crearArtista': 'RutasController.crearArtista',
-  'get /listarBorrarArtista': 'RutasController.listarBorrarArtista',
-  'get /ActualizarArtista': 'RutasController.ActualizarArtista',
-  'get /editarArtista': 'RutasController.editarArtista',
   'get /Error': 'RutasController.error',
+
+  'get /crearArtista': 'RutasController.crearArtista',
+  'get /listarArtista': 'RutasController.listarArtista',
+  'get /editarArtista': 'RutasController.editarArtista',
+
   'get /crearAlbum': 'RutasController.crearAlbum',
-  'get /listarBorrarAlbum': 'RutasController.listarBorrarAlbum'
+  'get /listarAlbum': 'RutasController.listarAlbum',
+  'get /editarAlbum': 'RutasController.editarAlbum'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
