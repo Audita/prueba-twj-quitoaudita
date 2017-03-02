@@ -99,7 +99,7 @@ module.exports = {
   listarAlbum: function (req, res) {
 
     Album.find()
-      .exec(function (errorIndefinido, artistasEncontrados) {
+      .exec(function (errorIndefinido, albumesEncontrados) {
 
         if (errorIndefinido) {
           res.view('vistas/Error', {
@@ -112,7 +112,7 @@ module.exports = {
         }
 
         res.view('vistas/Album/listarAlbum', {
-          albumes: artistasEncontrados
+          albumes: albumesEncontrados
         });
       })
   },
@@ -135,7 +135,7 @@ module.exports = {
           if (error) return res.view('error', {
             title: 'Error',
             error: {
-              descripcion: 'Fallo al buscar la el artista',
+              descripcion: 'Fallo al buscar la el album',
               url: '/listarAlbum'
             }
           });
@@ -157,6 +157,6 @@ module.exports = {
         }
       });
     }
-  },
+  }
 };
 

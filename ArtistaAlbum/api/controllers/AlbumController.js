@@ -80,7 +80,7 @@ module.exports = {
             if (errorIndefinido) {
               res.view('vistas/Error', {
                 error: {
-                  desripcion: "Hubo un problema cargando los Artistas",
+                  desripcion: "Hubo un problema cargando los Albumes",
                   rawError: errorIndefinido,
                   url: "/listarAlbum"
                 }
